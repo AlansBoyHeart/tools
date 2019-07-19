@@ -1,0 +1,1 @@
+from .rename_filenames_by_quantity import rename_file

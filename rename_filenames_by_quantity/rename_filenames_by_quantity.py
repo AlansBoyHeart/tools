@@ -14,7 +14,9 @@ def rename_file(folder, flag=None ):
 def _rename_filenames(folder):
     for number, filename in enumerate(os.listdir(folder)):
         name_old = os.path.join(folder, filename)
-        name_mew = os.path.join(folder, str(number))
+        suffix = filename.split(".")[-1]
+
+        name_new = os.path.join(folder, str(number)+"."+suffix)
         if os.path.isfile(name_old):
             # rename() could only change file, renames() could change file and directory
-            os.rename(name_old, name_mew)
+            os.rename(name_old, name_new)

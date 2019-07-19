@@ -8,7 +8,7 @@ class Graphics():
         pass
 
     @classmethod
-    def rotation(cls,image):
+    def rotation(cls, image):
         # grab the dimensions of the image and then determine the
         # center
         (h, w) = image.shape[:2]
