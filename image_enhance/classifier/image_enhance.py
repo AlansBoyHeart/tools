@@ -33,8 +33,8 @@ class Enhance():
     def center(self,image,resize_rate = 0.1):
         r = resize_rate
         h, w = image.shape[:2]
-        xmin, xmax = h*r, h-h*r
-        ymin, ymax = w*r, w-w*r
+        xmin, xmax = int(h*r), int(h-h*r)
+        ymin, ymax = int(w*r), int(w-w*r)
         image_new = image[xmin:xmax, ymin:ymax]
         self._save(image_new)
         return image_new
@@ -87,6 +87,10 @@ def enhance(directory):
     enhan = Enhance()
     for i in os.listdir(directory):
         picture_name = os.path.join(directory, i)
-        enhan.enhance(picture_name)
+        print(picture_name)
+        try:
+            enhan.enhance(picture_name)
+        except Exception as e:
+            print(e)
 
 
